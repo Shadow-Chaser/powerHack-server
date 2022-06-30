@@ -7,13 +7,15 @@ const Bill = require('../models/Bill');
 router.post("/add-billing", (req, res) => {
     const newBill = new Bill(req.body);
     // console.log(newBill);
-    newBill.save((err) => {
+    newBill.save((err, data) => {
         if (err) {
             res.status(500).json({
-                error: "There was a server side error!",
+                error: err,
             });
         } else {
+            // console.log(data._id);
             res.status(200).json({
+                id: data._id,
                 message: "Bill inserted!",
             });
         }
