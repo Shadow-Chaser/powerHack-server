@@ -1,12 +1,14 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const userHandler = require('./handlers/userHandler');
 const billHandler = require('./handlers/billHandler')
 
 const app = express();
 dotenv.config();
 app.use(express.json());
+app.use(cors());
 
 mongoose
     .connect(process.env.MONGO_CONNECTION_STRING, {
