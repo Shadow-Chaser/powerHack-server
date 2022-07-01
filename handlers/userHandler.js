@@ -49,12 +49,12 @@ router.post("/login", async (req, res) => {
                 });
             } else {
                 res.status(401).json({
-                    "error": "Authetication failed!"
+                    "error": "Authentication failed!"
                 });
             }
         } else {
             res.status(401).json({
-                "error": "Authetication failed!"
+                "error": "Authentication failed!"
             });
         }
     } catch {

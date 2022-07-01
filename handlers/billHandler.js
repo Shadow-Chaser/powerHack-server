@@ -73,7 +73,8 @@ router.put("/update-billing/:id", (req, res) => {
 
 
 // Delete a Bill by ID
-router.delete("/:id", (req, res) => {
+router.delete("/delete-billing/:id", (req, res) => {
+    console.log(req.params.id);
     Bill.deleteOne({ _id: req.params.id }, (err) => {
         if (err) {
             res.status(500).json({
